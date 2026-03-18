@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap AI Engineer – 32 Săptămâni</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #0f0f0f;
+    --bg2: #161616;
+    --bg3: #1e1e1e;
+    --border: #2a2a2a;
+    --border2: #333;
+    --text: #e8e6e0;
+    --muted: #888;
+    --accent: #e8a838;
+    --accent2: #c47c20;
+    --green: #4caf82;
+    --blue: #5b9bd5;
+    --red: #e05252;
+    --purple: #9b72e0;
+    --teal: #3ab8a0;
+    --mono: 'DM Mono', monospace;
+    --serif: 'DM Serif Display', serif;
+    --sans: 'Inter', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+  .header-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .header h1 em {
+    color: var(--accent);
+    font-style: italic;
+  }
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .meta-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 5px 12px;
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    color: var(--muted);
+  }
+  .meta-pill span { color: var(--accent); }
+
+  /* ALERT BOX */
+  .alert {
+    border-left: 3px solid var(--accent);
+    background: #1a1600;
+    padding: 16px 20px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 32px;
+    font-size: 13px;
+    color: #c9b880;
+  }
+  .alert strong { color: var(--accent); }
+
+  /* SECTION HEADERS */
+  h2 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text);
+    margin: 48px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  h2 .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+    letter-spacing: 0.1em;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 24px 0 10px;
+    letter-spacing: 0.02em;
+  }
+
+  /* PROFILE ANALYSIS CARD */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .profile-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .profile-card .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .profile-card .value {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin: 2px 2px 2px 0;
+  }
+  .tag-green { background: #0d2b1e; color: var(--green); border: 1px solid #1a4a32; }
+  .tag-amber { background: #2a1e00; color: var(--accent); border: 1px solid #3d2a00; }
+  .tag-red { background: #2a1010; color: var(--red); border: 1px solid #4a1818; }
+  .tag-blue { background: #0e1e2e; color: var(--blue); border: 1px solid #162a40; }
+  .tag-purple { background: #1a1228; color: var(--purple); border: 1px solid #281a3e; }
+
+  /* RECOMMENDATION BOX */
+  .recommendation {
+    background: linear-gradient(135deg, #1a1200 0%, #0f1a10 100%);
+    border: 1px solid #2a2200;
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+  .rec-role {
+    font-family: var(--mono);
+    font-size: 22px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .rec-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .rec-why {
+    font-size: 13px;
+    color: #c4bfa8;
+    line-height: 1.7;
+  }
+
+  /* PHASE TIMELINE */
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .phase {
+    background: var(--bg2);
+    padding: 16px;
+    position: relative;
+  }
+  .phase-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.08em;
+  }
+  .phase-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .phase-weeks {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+  }
+  .phase-1 { border-top: 2px solid #e05252; }
+  .phase-2 { border-top: 2px solid #e8a838; }
+  .phase-3 { border-top: 2px solid #4caf82; }
+  .phase-4 { border-top: 2px solid #9b72e0; }
+
+  /* WEEK CARDS */
+  .week-group {
+    margin-bottom: 32px;
+  }
+  .week-group-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .week-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .week-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .week-header:hover { background: var(--bg3); }
+  .week-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    min-width: 60px;
+    letter-spacing: 0.05em;
+  }
+  .week-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+  .week-hours {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .week-toggle {
+    color: var(--muted);
+    font-size: 12px;
+    transition: transform 0.2s;
+  }
+  .week-toggle.open { transform: rotate(180deg); }
+  .week-body {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--border);
+  }
+  .week-body.open { display: block; }
+
+  .week-section {
+    margin-top: 16px;
+  }
+  .week-section-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .task-list {
+    list-style: none;
+  }
+  .task-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 5px 0;
+    font-size: 13px;
+    color: #c8c4b8;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .task-list li:last-child { border-bottom: none; }
+  .task-list li::before {
+    content: '›';
+    color: var(--accent);
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .milestone-box {
+    background: #0d1a0f;
+    border: 1px solid #1a3020;
+    border-left: 3px solid var(--green);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: #7dba9a;
+  }
+  .milestone-box strong { color: var(--green); font-size: 11px; font-family: var(--mono); letter-spacing: 0.08em; }
+
+  /* CERTIFICATIONS TABLE */
+  .cert-grid {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .cert-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .cert-priority {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    align-self: center;
+  }
+  .p1 { background: #2a1010; color: #e05252; border: 1px solid #4a1818; }
+  .p2 { background: #2a1e00; color: var(--accent); border: 1px solid #3d2a00; }
+  .p3 { background: #0d2014; color: var(--green); border: 1px solid #1a3a24; }
+  .cert-info { }
+  .cert-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .cert-issuer { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .cert-tags { }
+  .cert-cost {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .cert-period { font-size: 11px; color: var(--muted); }
+
+  /* PROJECT CARDS */
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .project-num {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: var(--mono);
+    font-size: 28px;
+    color: var(--border2);
+    font-weight: 500;
+    line-height: 1;
+  }
+  .project-level {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .project-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    padding-right: 40px;
+  }
+  .project-desc {
+    font-size: 13px;
+    color: #a09a8e;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .stack-item {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 3px;
+    color: var(--muted);
+  }
+
+  /* RESOURCES */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .resource-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .resource-type {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .resource-type::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .resource-list {
+    list-style: none;
+  }
+  .resource-list li {
+    padding: 5px 0;
+    font-size: 12px;
+    color: #b0ab9e;
+    border-bottom: 1px solid #1e1e1e;
+    line-height: 1.5;
+  }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-list li strong { color: var(--text); }
+  .resource-list .free {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--green);
+    background: #0d2b1e;
+    border: 1px solid #1a4a32;
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-left: 4px;
+  }
+
+  /* INTERVIEW PREP */
+  .question-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+  }
+  .question-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .question-hint {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* EVALUATION */
+  .eval-week {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .eval-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    color: var(--accent);
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .eval-content { flex: 1; }
+  .eval-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .eval-desc { font-size: 12px; color: var(--muted); }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: gap;
+    gap: 12px;
+  }
+  .footer-motto {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--accent);
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  .info-box {
+    background: #0e1a2a;
+    border: 1px solid #162a40;
+    border-left: 3px solid var(--blue);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 12px;
+    color: #7aabca;
+    margin: 16px 0;
+  }
+
+  @media (max-width: 640px) {
+    .profile-grid, .resource-grid, .phases { grid-template-columns: 1fr 1fr; }
+    .phases { grid-template-columns: 1fr 1fr; }
+    body { padding: 20px 16px 60px; }
+    .header h1 { font-size: 28px; }
+    .cert-card { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 400px) {
+    .profile-grid, .resource-grid, .phases { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-tag">// Roadmap Personalizat — Reconversie Profesională</div>
+  <h1>Drum spre <em>AI Engineer</em><br>în 32 de săptămâni</h1>
+  <div class="header-meta">
+    <div class="meta-pill">Durată: <span>32 săptămâni</span></div>
+    <div class="meta-pill">Efort: <span>8 ore/săptămână</span></div>
+    <div class="meta-pill">Total: <span>~256 ore</span></div>
+    <div class="meta-pill">Target: <span>AI Solutions Builder (Remote EU/US)</span></div>
+    <div class="meta-pill">Buget: <span>200–600 EUR</span></div>
+  </div>
+</div>
+
+<div class="alert">
+  <strong>AVERTISMENT PROFESORAL:</strong> Planul de față este exigent și nu tolerează salturi. Dacă ratezi o săptămână, nu sari peste ea — recuperezi. Fiecare modul este construit pe cel anterior. Disciplina constantă bate talentul sporadic. Ai fost avertizat.
+</div>
+
+
+<!-- SECTION 1: PROFIL + RECOMANDARE ROL -->
+<h2><span class="section-num">01 / ANALIZĂ PROFIL</span>Cine ești și unde mergi</h2>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <div class="label">Puncte forte identificate</div>
+    <div class="value">
+      <span class="tag tag-green">Experiență platforme digitale</span>
+      <span class="tag tag-green">Înțelege HTML/CSS</span>
+      <span class="tag tag-green">Operează CMS-uri</span>
+      <span class="tag tag-green">Excel funcțional</span>
+      <span class="tag tag-green">Platforme valutare</span>
+      <span class="tag tag-green">Mentalitate orientată business</span>
+    </div>
+  </div>
+  <div class="profile-card">
+    <div class="label">Lacune critice de acoperit</div>
+    <div class="value">
+      <span class="tag tag-red">Zero Python</span>
+      <span class="tag tag-red">Zero ML theory</span>
+      <span class="tag tag-red">Zero APIs</span>
+      <span class="tag tag-red">Zero Git/GitHub</span>
+      <span class="tag tag-amber">Fără BAC (limitează cert. ANC)</span>
+      <span class="tag tag-amber">Fără portofoliu tehnic</span>
+    </div>
+  </div>
+  <div class="profile-card">
+    <div class="label">Piață țintă</div>
+    <div class="value">
+      <span class="tag tag-blue">Remote EU/US</span>
+      <span class="tag tag-blue">SME-uri & startup-uri</span>
+      <span class="tag tag-blue">Agenții digitale</span>
+      <span class="tag tag-blue">Consultanță AI</span>
+    </div>
+  </div>
+  <div class="profile-card">
+    <div class="label">Avantaj competitiv unic</div>
+    <div class="value">
+      <span class="tag tag-purple">Gândire business-first</span>
+      <span class="tag tag-purple">Nu e "pur tehnic"</span>
+      <span class="tag tag-purple">Înțelege context real</span>
+      <p style="font-size:11px;color:#888;margin-top:8px;">Companiile vor AI Engineers care înțeleg probleme reale, nu doar cod.</p>
+    </div>
+  </div>
+</div>
+
+<div class="recommendation">
+  <div class="rec-role">AI Solutions Builder / Junior AI Engineer</div>
+  <div class="rec-sub">(cu specializare în LLM Applications & Workflow Automation)</div>
+  <div class="rec-why">
+    <strong>De ce NU ML Engineer sau Data Scientist:</strong> Aceste roluri cer matematică avansată (calcul, algebră liniară, statistică) și 1–2 ani de practică solidă. Nu sunt realiste în 8 luni pornind de la zero.<br><br>
+    <strong>De ce DA AI Solutions Builder:</strong> Piața explodează cu cerere pentru profesioniști care pot integra LLM-uri (GPT-4, Claude, Gemini) în produse reale, pot construi chatbots, sisteme RAG, agenți AI și automatizări. Aceste roluri cer Python funcțional + API skills + gândire de produs — exact ce poți construi în 32 de săptămâni. Experiența ta în platforme digitale și gândirea business sunt active genuine.<br><br>
+    <strong>Titluri de job vizate:</strong> Junior AI Engineer · AI Integration Developer · Prompt Engineer + Developer · LLM Application Developer · AI Automation Specialist
+  </div>
+</div>
+
+
+<!-- SECTION 2: STRUCTURA PE FAZE -->
+<h2><span class="section-num">02 / STRUCTURĂ PROGRAM</span>Cele 4 faze ale transformării</h2>
+
+<div class="phases">
+  <div class="phase phase-1">
+    <div class="phase-num">FAZA 01</div>
+    <div class="phase-title">Fundații tehnice</div>
+    <div class="phase-weeks">Săpt. 1–8</div>
+  </div>
+  <div class="phase phase-2">
+    <div class="phase-num">FAZA 02</div>
+    <div class="phase-title">AI Core Skills</div>
+    <div class="phase-weeks">Săpt. 9–18</div>
+  </div>
+  <div class="phase phase-3">
+    <div class="phase-num">FAZA 03</div>
+    <div class="phase-title">Proiecte & Portofoliu</div>
+    <div class="phase-weeks">Săpt. 19–26</div>
+  </div>
+  <div class="phase phase-4">
+    <div class="phase-num">FAZA 04</div>
+    <div class="phase-title">Job Hunt</div>
+    <div class="phase-weeks">Săpt. 27–32</div>
+  </div>
+</div>
+
+
+<!-- SECTION 3: PLAN SĂPTĂMÂNAL -->
+<h2><span class="section-num">03 / PLAN SĂPTĂMÂNAL</span>Obiective, sarcini și milestone-uri</h2>
+
+<!-- FAZA 1 -->
+<div class="week-group">
+  <div class="week-group-title">▬ FAZA 1: Fundații tehnice (Săptămânile 1–8) ▬</div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 01</span>
+      <span class="week-title">Setup + Python absolut zero</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Obiectiv</div>
+        <p style="font-size:13px;color:#a09a8e;">Instalezi mediul de lucru și scrii primele linii de cod funcțional. Nu există scuze pentru a sări această săptămână.</p>
+      </div>
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>Instalează Python 3.11 + VS Code + extensia Python (1h)</li>
+          <li>Curs: "Python for Everybody" – Săptămâna 1-2 pe Coursera (gratuit audit) – variabile, tipuri, input/output (3h)</li>
+          <li>Exerciții practice: scrie 10 programe simple (calculator, convertor grade, FizzBuzz) (2h)</li>
+          <li>Creează cont GitHub, primul repository, primul commit (1h)</li>
+          <li>Citește: Ce este un AI Engineer? – Căutare articole pe Medium/Towards Data Science (1h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>CHECKPOINT:</strong> Poți scrie un program Python care citește input de la utilizator și afișează un rezultat calculat. GitHub are primul tău commit.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 02</span>
+      <span class="week-title">Python: structuri de control și funcții</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>Python for Everybody – Săptămânile 3-4: condiții if/else, bucle for/while (3h)</li>
+          <li>Funcții: parametri, return, scope – exerciții pe LeetCode Easy (2h)</li>
+          <li>Liste, dicționare, tuple – structuri esențiale pentru AI (2h)</li>
+          <li>Mini-proiect: Scriptul "Analizor de date casino" – citește un CSV, calculează statistici simple (1h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>CHECKPOINT:</strong> Mini-proiect CSV funcțional pe GitHub. Poți citi, procesa și afișa date dintr-un fișier.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 03</span>
+      <span class="week-title">Python: fișiere, erori, module</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>Python for Everybody – Săptămânile 5-6: fișiere, excepții try/except (2h)</li>
+          <li>Lucrul cu biblioteci: pip install, import, requests library (2h)</li>
+          <li>JSON: citire și scriere (esențial pentru APIs) (1h)</li>
+          <li>Exerciții: Kaggle Python Course – primele 3 lecții (2h)</li>
+          <li>Proiect: Script care descarcă date de la un API public (e.g. wttr.in weather) și le salvează JSON (1h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>CHECKPOINT:</strong> Poți consuma un API REST în Python și salva rezultatele local.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 04</span>
+      <span class="week-title">Python OOP + Git avansat</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>Programare orientată obiect: clase, obiecte, metode, moștenire (3h)</li>
+          <li>Git: branching, merge, pull requests – curs Git pe freeCodeCamp (2h)</li>
+          <li>Virtual environments (venv) – bune practici profesionale (1h)</li>
+          <li>Proiect: Refactorizează scriptul de la săptămâna 2 folosind OOP + publică pe GitHub cu README (2h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>CHECKPOINT: EVALUARE FAZA PYTHON BASIC.</strong> Test pe HackerRank Python Basic Certification (gratuit). Scor minim acceptat: 70%.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 05</span>
+      <span class="week-title">NumPy + Pandas: manipularea datelor</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>Kaggle: Pandas Course complet (3h)</li>
+          <li>NumPy: arrays, operații vectoriale, indexing (2h)</li>
+          <li>Exerciții: 5 notebook-uri Kaggle pe dataset-uri reale (2h)</li>
+          <li>Proiect: Analizează un dataset public (Kaggle Titanic sau similar) – statistici, grupuri, filtrare (1h)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 06</span>
+      <span class="week-title">Vizualizare date + Jupyter Notebooks</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>Matplotlib + Seaborn: grafice, heatmaps, scatter plots (2h)</li>
+          <li>Jupyter Notebooks: workflow profesional, markdown în notebook-uri (1h)</li>
+          <li>Kaggle: Data Visualization Course (2h)</li>
+          <li>Proiect: Notebook complet cu EDA (Exploratory Data Analysis) pe un dataset la alegere, cu minim 5 vizualizări și concluzii scrise (3h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>CHECKPOINT:</strong> Primul notebook EDA complet publicat pe Kaggle și GitHub.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 07</span>
+      <span class="week-title">APIs & Flask: prima ta aplicație web</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>REST APIs: concepte (endpoints, HTTP methods, status codes, auth) (2h)</li>
+          <li>Flask: instalare, routing, templates, request/response (3h)</li>
+          <li>Proiect: Construiește o micro-aplicație Flask cu 3 endpoints care procesează date (2h)</li>
+          <li>Deploy gratuit pe Render.com sau Railway.app (1h)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 08</span>
+      <span class="week-title">RECAPITULARE + Evaluare Faza 1</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>Revizuiește toate proiectele din Faza 1, refactorizează codul (2h)</li>
+          <li>Completează HackerRank Python Intermediate Test (1h)</li>
+          <li>Scrie un README profesional pentru fiecare proiect GitHub (2h)</li>
+          <li>Obține certificatul: Google's "Crash Course on Python" pe Coursera (dacă nu deja – ~$49 sau audit gratuit) (2h recapitulare)</li>
+          <li>Planifică Faza 2: citește syllabus-urile pentru cursurile AI (1h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>MILESTONE MAJOR FAZA 1:</strong> GitHub cu 4+ proiecte funcționale. Cunoști Python suficient pentru AI. Ești gata pentru LLMs. Nu avansa dacă nu ai finalizat minim 3 proiecte.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAZA 2 -->
+<div class="week-group">
+  <div class="week-group-title">▬ FAZA 2: AI Core Skills (Săptămânile 9–18) ▬</div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 09</span>
+      <span class="week-title">Introducere în Machine Learning</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>Cursul "AI For Everyone" (Andrew Ng, DeepLearning.AI, Coursera) – întreg (3h) – gratuit audit</li>
+          <li>Kaggle: Intro to Machine Learning Course (2h)</li>
+          <li>Concepte: supervised/unsupervised learning, training/test sets, overfitting (1h)</li>
+          <li>Scikit-learn: primul model de clasificare pe Titanic dataset (2h)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 10</span>
+      <span class="week-title">Modele ML clasice + evaluare</span>
+      <span class="week-hours">8h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (8 ore)</div>
+        <ul class="task-list">
+          <li>Algoritmi: Linear Regression, Decision Trees, Random Forest, KNN (3h)</li>
+          <li>Metrici: accuracy, precision, recall, F1, confusion matrix (2h)</li>
+          <li>Kaggle: Intermediate ML Course (2h)</li>
+          <li>Proiect: Kaggle competition entry (House Prices sau similar) cu scikit-learn (1h)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 11–12</span>
+      <span class="week-title">Introducere în LLMs și Prompt Engineering</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (16 ore în 2 săptămâni)</div>
+        <ul class="task-list">
+          <li>Curs: "ChatGPT Prompt Engineering for Developers" – DeepLearning.AI (gratuit) (3h)</li>
+          <li>Curs: "LangChain for LLM Application Development" – DeepLearning.AI (gratuit) (3h)</li>
+          <li>OpenAI API: obține cheie API, primele apeluri, parametri (temperature, max_tokens) (2h)</li>
+          <li>Anthropic Claude API: documentație + primele apeluri (2h)</li>
+          <li>Tehnici avansate prompt engineering: zero-shot, few-shot, chain-of-thought, role prompting (3h)</li>
+          <li>Proiect: Chatbot simplu CLI cu OpenAI API + conversație multi-turn (3h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>CHECKPOINT:</strong> Ai construit un chatbot funcțional care ține cont de istoricul conversației. Este pe GitHub.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 13–14</span>
+      <span class="week-title">LangChain: Construire aplicații LLM</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (16 ore în 2 săptămâni)</div>
+        <ul class="task-list">
+          <li>LangChain Expression Language (LCEL): chains, prompts, output parsers (3h)</li>
+          <li>Memory în LangChain: ConversationBufferMemory, SummaryMemory (2h)</li>
+          <li>Curs: "LangChain: Chat with Your Data" – DeepLearning.AI (gratuit) (2h)</li>
+          <li>Document loaders: PDF, text, web scraping cu LangChain (2h)</li>
+          <li>Text splitting și chunking strategies (2h)</li>
+          <li>Proiect: Aplicație "Chat with PDF" – încarci un document PDF și poți pune întrebări despre el (5h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>CHECKPOINT:</strong> Aplicație "Chat with PDF" funcțională, deploiată și pe GitHub cu documentație.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 15–16</span>
+      <span class="week-title">RAG (Retrieval Augmented Generation)</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (16 ore în 2 săptămâni)</div>
+        <ul class="task-list">
+          <li>Concepte: embeddings, vector stores, semantic search (2h)</li>
+          <li>Curs: "Building Systems with ChatGPT API" – DeepLearning.AI (gratuit) (2h)</li>
+          <li>Vector databases: Chroma (local), Pinecone (cloud free tier) (3h)</li>
+          <li>RAG pipeline complet: ingestion → embedding → retrieval → generation (3h)</li>
+          <li>Evaluarea RAG: precision@k, faithfulness, relevancy (2h)</li>
+          <li>Proiect: Sistem RAG pentru documentele unei firme fictive (knowledge base Q&A) (4h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>CHECKPOINT:</strong> RAG system funcțional. Acesta este skill-ul #1 cerut în joburile AI Engineer entry-level în 2025.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 17–18</span>
+      <span class="week-title">AI Agents + Tool Use + Evaluare Faza 2</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini (16 ore în 2 săptămâni)</div>
+        <ul class="task-list">
+          <li>Curs: "AI Agents in LangGraph" – DeepLearning.AI (gratuit) (3h)</li>
+          <li>Function calling / tool use: cum un LLM poate apela funcții Python (2h)</li>
+          <li>Construiește un agent simplu cu 3-4 unelte (web search, calculator, weather API) (4h)</li>
+          <li>LangGraph: agenți cu stare și cicluri (2h)</li>
+          <li>EVALUARE FAZA 2: Quiz tehnic – 30 întrebări (LLMs, RAG, APIs, Python) – autoevaluare (2h)</li>
+          <li>Revizuiește și documentează toate proiectele Faza 2 pe GitHub (3h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>MILESTONE MAJOR FAZA 2:</strong> Ai 3 proiecte AI funcționale (Chatbot, Chat with PDF, RAG System). Cunoști LangChain, OpenAI API, vectore stores. Ești un AI Engineer în devenire, nu un beginner.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAZA 3 -->
+<div class="week-group">
+  <div class="week-group-title">▬ FAZA 3: Proiecte Complexe & Portofoliu (Săptămânile 19–26) ▬</div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 19–20</span>
+      <span class="week-title">Proiect Major 1: AI Business Assistant</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Descriere proiect</div>
+        <p style="font-size:13px;color:#a09a8e;">Construiești un asistent AI complet pentru o afacere reală (poți folosi un business fictiv sau un prieten care are o afacere). Asistentul răspunde la întrebări despre produse/servicii, preia comenzi simple, gestionează FAQ-uri.</p>
+      </div>
+      <div class="week-section">
+        <div class="week-section-title">Componente tehnice</div>
+        <ul class="task-list">
+          <li>RAG system cu knowledge base al afacerii (documente, prețuri, politici)</li>
+          <li>Interfață web cu Streamlit (simplu, rapid, profesional)</li>
+          <li>Memorie conversațională (utilizatorul poate relua conversația)</li>
+          <li>Sistem de escaladare: când nu știe, trimite email (simulat)</li>
+          <li>Deploy pe Streamlit Cloud (gratuit)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>LIVRABIL:</strong> Aplicație live cu URL public, cod pe GitHub, README cu instrucțiuni de instalare și arhitectură.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 21–22</span>
+      <span class="week-title">Proiect Major 2: Automatizare cu AI</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Descriere proiect</div>
+        <p style="font-size:13px;color:#a09a8e;">Pipeline de automatizare care procesează date (e.g., analizează review-uri de clienți, extrage sentimente, generează rapoarte automate, trimite rezumate pe email). Simulează munca reală dintr-o companie.</p>
+      </div>
+      <div class="week-section">
+        <div class="week-section-title">Componente tehnice</div>
+        <ul class="task-list">
+          <li>Web scraping sau API input (colectare date)</li>
+          <li>LLM pentru clasificare și extragere informații structurate</li>
+          <li>Output: rapoarte JSON + PDF generate automat</li>
+          <li>Scheduled runs (cron job simplu)</li>
+          <li>Notificări simulate (email/Slack webhook)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 23–24</span>
+      <span class="week-title">Proiect Major 3: API AI propriu</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Descriere proiect</div>
+        <p style="font-size:13px;color:#a09a8e;">Construiești un API REST propriu (cu FastAPI) care expune funcționalități AI: analiză text, generare conținut, clasificare. Acesta poate fi integrat în orice website sau aplicație de terți.</p>
+      </div>
+      <div class="week-section">
+        <div class="week-section-title">Componente tehnice</div>
+        <ul class="task-list">
+          <li>FastAPI: endpoints, validare cu Pydantic, documentare automată (Swagger UI)</li>
+          <li>Autentificare cu API keys</li>
+          <li>Rate limiting simplu</li>
+          <li>3 endpoints AI: /analyze, /generate, /classify</li>
+          <li>Deploy pe Railway.app + documentație completă</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>LIVRABIL:</strong> API live cu Swagger docs, testabil din browser. Acesta demonstrează că poți lucra la nivel de backend real.</div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 25–26</span>
+      <span class="week-title">Portofoliu profesional + LinkedIn + CV tehnic</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini</div>
+        <ul class="task-list">
+          <li>Website portofoliu personal cu toate proiectele (GitHub Pages sau Vercel, template gratuit) (4h)</li>
+          <li>Refactorizare completă a tuturor proiectelor: cod curat, teste, documentație (4h)</li>
+          <li>CV tehnic orientat AI: format ATS-friendly, highlight-uri specifice (2h)</li>
+          <li>LinkedIn optimization: headline, about, proiecte, skill endorsements (2h)</li>
+          <li>Scrie 3 articole tehnice scurte pe LinkedIn sau Medium despre ce ai construit (4h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>MILESTONE MAJOR FAZA 3:</strong> Portofoliu online cu 5+ proiecte AI reale, CV profesional, prezență LinkedIn activă. Ești angajabil tehnic.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAZA 4 -->
+<div class="week-group">
+  <div class="week-group-title">▬ FAZA 4: Job Hunt (Săptămânile 27–32) ▬</div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 27–28</span>
+      <span class="week-title">Pregătire interview tehnic</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini</div>
+        <ul class="task-list">
+          <li>LeetCode: 20 probleme Easy Python (arrays, strings, hashmaps) – 2 pe zi (6h)</li>
+          <li>Flashcard-uri tehnice: 100 întrebări AI/ML/Python (Anki app) (3h)</li>
+          <li>Mock interview tehnic: înregistrează-te răspunzând la 10 întrebări tehnice (2h)</li>
+          <li>Sistem Design basics pentru AI: cum prezinți arhitectura unei soluții AI (3h)</li>
+          <li>Pregătire behavioral questions (STAR method) (2h)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 29–30</span>
+      <span class="week-title">Aplicări active + networking</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini</div>
+        <ul class="task-list">
+          <li>Target: 5 aplicări/săptămână pe LinkedIn, Remote.co, We Work Remotely, Otta (4h)</li>
+          <li>Personalizează cover letter pentru fiecare aplicare (nu trimite template generic) (3h)</li>
+          <li>Contactează 10 AI Engineers pe LinkedIn (mesaj scurt, specific, fără "can I pick your brain") (2h)</li>
+          <li>Participă la 1 Meetup/Webinar AI (EventBrite, Luma, Discord comunități) (3h)</li>
+          <li>Continuă să înveți: urmărește tendințe (HuggingFace papers, Simon Willison blog) (4h)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <span class="week-num">SĂPT. 31–32</span>
+      <span class="week-title">Interviews + iterație continuă</span>
+      <span class="week-hours">16h</span>
+      <span class="week-toggle">▼</span>
+    </div>
+    <div class="week-body">
+      <div class="week-section">
+        <div class="week-section-title">Sarcini</div>
+        <ul class="task-list">
+          <li>Fă take-home challenges (multe companii cer un proiect de 3-5 ore) – tratează-le serios (6h)</li>
+          <li>Post-interview: notează toate întrebările primite, documentează răspunsurile (1h)</li>
+          <li>Dacă nu ai ofertă: identifică lacunele, completează în încă 4 săptămâni (planul continuă)</li>
+          <li>Skill nou opțional: Docker basics pentru deployare (2h)</li>
+          <li>Skill nou opțional: LlamaIndex – alternativă la LangChain (3h)</li>
+          <li>Primești feedback de la interviuri: integrează-l imediat (4h)</li>
+        </ul>
+      </div>
+      <div class="milestone-box"><strong>MILESTONE FINAL:</strong> Portofoliu complet, 3 proiecte live, CV profesional, certificări obținute, 30+ aplicări trimise. Dacă nu ai ofertă în 32 de săptămâni, înseamnă că ceva din execuție a lipsit — nu planul.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION 4: CERTIFICARI -->
+<h2><span class="section-num">04 / CERTIFICĂRI</span>Ce obții și când</h2>
+
+<div class="alert">
+  <strong>NOTĂ IMPORTANTĂ:</strong> Lipsa bacalaureatului NU te blochează pe piața internațională. Certificările Google, DeepLearning.AI, IBM de pe Coursera și certificate profesionale sunt recunoscute de angajatori EU/US. Ele nu cer diplome anterioare. Focusul tău este pe competențe demonstrabile, nu pe acreditări formale.
+</div>
+
+<h3>PRIORITATE 1 — Esențiale, obțin în primele 16 săptămâni</h3>
+<div class="cert-grid">
+  <div class="cert-card">
+    <span class="cert-priority p1">P1</span>
+    <div class="cert-info">
+      <div class="cert-name">Google IT Automation with Python Professional Certificate</div>
+      <div class="cert-issuer">Google / Coursera · 6 cursuri</div>
+      <div class="cert-tags">
+        <span class="tag tag-blue">Python</span>
+        <span class="tag tag-blue">Git</span>
+        <span class="tag tag-blue">APIs</span>
+        <span class="tag tag-green">Recunoscut internațional</span>
+      </div>
+    </div>
+    <div class="cert-cost">~$49/lună<div class="cert-period">Coursera sub</div></div>
+  </div>
+  <div class="cert-card">
+    <span class="cert-priority p1">P1</span>
+    <div class="cert-info">
+      <div class="cert-name">DeepLearning.AI short courses (pachet)</div>
+      <div class="cert-issuer">DeepLearning.AI · 8–10 cursuri scurte relevante</div>
+      <div class="cert-tags">
+        <span class="tag tag-amber">LangChain</span>
+        <span class="tag tag-amber">Prompt Eng</span>
+        <span class="tag tag-amber">RAG</span>
+        <span class="tag tag-amber">Agents</span>
+        <span class="tag tag-green">GRATUITE cu certificat</span>
+      </div>
+    </div>
+    <div class="cert-cost">Gratuit<div class="cert-period">deeplearning.ai</div></div>
+  </div>
+</div>
+
+<h3>PRIORITATE 2 — Obțin în Faza 2–3</h3>
+<div class="cert-grid">
+  <div class="cert-card">
+    <span class="cert-priority p2">P2</span>
+    <div class="cert-info">
+      <div class="cert-name">IBM AI Engineering Professional Certificate</div>
+      <div class="cert-issuer">IBM / Coursera · 6 cursuri</div>
+      <div class="cert-tags">
+        <span class="tag tag-blue">ML</span>
+        <span class="tag tag-blue">Deep Learning</span>
+        <span class="tag tag-blue">PyTorch</span>
+        <span class="tag tag-green">Badge IBM verificabil</span>
+      </div>
+    </div>
+    <div class="cert-cost">~$49/lună<div class="cert-period">Coursera sub</div></div>
+  </div>
+  <div class="cert-card">
+    <span class="cert-priority p2">P2</span>
+    <div class="cert-info">
+      <div class="cert-name">Microsoft Azure AI Fundamentals (AI-900)</div>
+      <div class="cert-issuer">Microsoft · Examen oficial</div>
+      <div class="cert-tags">
+        <span class="tag tag-blue">Azure AI</span>
+        <span class="tag tag-blue">Cognitive Services</span>
+        <span class="tag tag-green">Cert. verificabilă global</span>
+      </div>
+    </div>
+    <div class="cert-cost">~165 EUR<div class="cert-period">examen oficial</div></div>
+  </div>
+  <div class="cert-card">
+    <span class="cert-priority p2">P2</span>
+    <div class="cert-info">
+      <div class="cert-name">HuggingFace NLP Course</div>
+      <div class="cert-issuer">HuggingFace · Online</div>
+      <div class="cert-tags">
+        <span class="tag tag-purple">Transformers</span>
+        <span class="tag tag-purple">Fine-tuning</span>
+        <span class="tag tag-purple">Datasets</span>
+        <span class="tag tag-green">GRATUIT cu certificat</span>
+      </div>
+    </div>
+    <div class="cert-cost">Gratuit<div class="cert-period">huggingface.co</div></div>
+  </div>
+</div>
+
+<h3>PRIORITATE 3 — Opționale, dacă bugetul permite</h3>
+<div class="cert-grid">
+  <div class="cert-card">
+    <span class="cert-priority p3">P3</span>
+    <div class="cert-info">
+      <div class="cert-name">AWS Certified Cloud Practitioner (CLF-C02)</div>
+      <div class="cert-issuer">Amazon Web Services · Examen oficial</div>
+      <div class="cert-tags">
+        <span class="tag tag-amber">Cloud basics</span>
+        <span class="tag tag-amber">AWS AI services</span>
+        <span class="tag tag-green">Valoros pentru remote jobs US</span>
+      </div>
+    </div>
+    <div class="cert-cost">~100 EUR<div class="cert-period">examen oficial</div></div>
+  </div>
+  <div class="cert-card">
+    <span class="cert-priority p3">P3</span>
+    <div class="cert-info">
+      <div class="cert-name">MITx: Fundamentals of Statistics (edX)</div>
+      <div class="cert-issuer">MITx / edX · Micro-credential universitar</div>
+      <div class="cert-tags">
+        <span class="tag tag-purple">Statistică</span>
+        <span class="tag tag-purple">MIT branded</span>
+        <span class="tag tag-green">Recunoscut universitar</span>
+      </div>
+    </div>
+    <div class="cert-cost">~150 EUR<div class="cert-period">dacă vrei badge MIT</div></div>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>Buget estimat recomandat:</strong> Coursera subscription 3–4 luni (~$49 × 4 = ~200 EUR) pentru Google IT + IBM AI certs · Azure AI-900 exam (~165 EUR) · DeepLearning.AI + HuggingFace gratuit · TOTAL: ~365–400 EUR. Dacă bugetul e strâns, prioritizează DeepLearning.AI (gratuit) + Azure AI-900 (~165 EUR) = certificare validă sub 200 EUR.
+</div>
+
+
+<!-- SECTION 5: PROIECTE PORTOFOLIU -->
+<h2><span class="section-num">05 / PORTOFOLIU</span>Proiecte progresive</h2>
+
+<div class="project-card">
+  <div class="project-num">01</div>
+  <div class="project-level" style="color: var(--green);">BEGINNER · Săpt. 1–4</div>
+  <div class="project-title">Analizor de Date CSV cu Raport Auto-generat</div>
+  <div class="project-desc">Scriptul citește un fișier CSV (date business), calculează statistici, generează un raport text. Demonstrează Python fundamentals și lucrul cu date reale.</div>
+  <div class="project-stack">
+    <span class="stack-item">Python</span>
+    <span class="stack-item">Pandas</span>
+    <span class="stack-item">CSV</span>
+    <span class="stack-item">Matplotlib</span>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-num">02</div>
+  <div class="project-level" style="color: var(--accent);">BEGINNER+ · Săpt. 5–8</div>
+  <div class="project-title">API Weather Dashboard + Flask Web App</div>
+  <div class="project-desc">Aplicație web minimă care afișează date meteo în timp real, parsate de la un API public. Interfață HTML simplă, server Flask, deploy live.</div>
+  <div class="project-stack">
+    <span class="stack-item">Flask</span>
+    <span class="stack-item">REST APIs</span>
+    <span class="stack-item">HTML/CSS</span>
+    <span class="stack-item">Render.com</span>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-num">03</div>
+  <div class="project-level" style="color: var(--accent);">INTERMEDIATE · Săpt. 11–12</div>
+  <div class="project-title">Chatbot Multi-turn cu Memorie Contextuală</div>
+  <div class="project-desc">Chatbot CLI care menține istoricul conversației, poate fi instruit printr-un system prompt și răspunde coerent pe parcursul mai multor turns.</div>
+  <div class="project-stack">
+    <span class="stack-item">Python</span>
+    <span class="stack-item">OpenAI API</span>
+    <span class="stack-item">Conversation history</span>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-num">04</div>
+  <div class="project-level" style="color: var(--blue);">INTERMEDIATE · Săpt. 13–16</div>
+  <div class="project-title">Chat With Your Documents (RAG System)</div>
+  <div class="project-desc">Aplicație Streamlit în care încarci un PDF sau mai multe documente și poți pune întrebări despre ele. RAG pipeline complet cu vector store local.</div>
+  <div class="project-stack">
+    <span class="stack-item">LangChain</span>
+    <span class="stack-item">Chroma</span>
+    <span class="stack-item">Streamlit</span>
+    <span class="stack-item">OpenAI Embeddings</span>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-num">05</div>
+  <div class="project-level" style="color: var(--purple);">ADVANCED · Săpt. 19–20</div>
+  <div class="project-title">AI Business Assistant (Proiect Flagship)</div>
+  <div class="project-desc">Asistent AI complet pentru o afacere reală/fictivă cu knowledge base RAG, interfață web, memorie conversațională, sistem de escaladare și deploy live accesibil public.</div>
+  <div class="project-stack">
+    <span class="stack-item">LangChain</span>
+    <span class="stack-item">Pinecone</span>
+    <span class="stack-item">Streamlit</span>
+    <span class="stack-item">OpenAI</span>
+    <span class="stack-item">Streamlit Cloud</span>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="project-num">06</div>
+  <div class="project-level" style="color: var(--purple);">ADVANCED · Săpt. 23–24</div>
+  <div class="project-title">AI API Service (FastAPI + Deploy)</div>
+  <div class="project-desc">API REST profesional cu endpoint-uri AI, autentificare, rate limiting, documentație Swagger automată. Demonstrează că poți construi produse AI integrable.</div>
+  <div class="project-stack">
+    <span class="stack-item">FastAPI</span>
+    <span class="stack-item">Pydantic</span>
+    <span class="stack-item">API Keys Auth</span>
+    <span class="stack-item">Railway.app</span>
+  </div>
+</div>
+
+
+<!-- SECTION 6: EVALUARI -->
+<h2><span class="section-num">06 / EVALUĂRI</span>Cum îți măsori progresul</h2>
+
+<div class="eval-week">
+  <div class="eval-badge">SĂPT. 04</div>
+  <div class="eval-content">
+    <div class="eval-title">HackerRank Python Basic Certification</div>
+    <div class="eval-desc">Test oficial, 90 minute, gratuit. Scor minim acceptat: 70%. Sub 70%: repeti Faza Python fără a avansa.</div>
+  </div>
+</div>
+<div class="eval-week">
+  <div class="eval-badge">SĂPT. 08</div>
+  <div class="eval-content">
+    <div class="eval-title">Code Review personal + Peer Review</div>
+    <div class="eval-desc">Postezi codul pe Reddit r/learnpython sau ceri feedback pe GitHub. Minim 3 proiecte review-ate. Dacă nu primești feedback extern, nu poți evalua unghiurile oarbe.</div>
+  </div>
+</div>
+<div class="eval-week">
+  <div class="eval-badge">SĂPT. 12</div>
+  <div class="eval-content">
+    <div class="eval-title">Test tehnic AI concepte (auto-evaluare)</div>
+    <div class="eval-desc">30 întrebări despre LLMs, embeddings, RAG, prompt engineering. Creezi testul tu din notițele proprii. Scor sub 70% → repriei materia.</div>
+  </div>
+</div>
+<div class="eval-week">
+  <div class="eval-badge">SĂPT. 18</div>
+  <div class="eval-content">
+    <div class="eval-title">Milestone Review Faza 2 + proiect demo</div>
+    <div class="eval-desc">Prezinți (te înregistrezi video 10 min) cele 3 proiecte AI. Explici arhitectura, deciziile tehnice, ce ai fi făcut altfel. Postezi pe LinkedIn.</div>
+  </div>
+</div>
+<div class="eval-week">
+  <div class="eval-badge">SĂPT. 26</div>
+  <div class="eval-content">
+    <div class="eval-title">Mock Technical Interview</div>
+    <div class="eval-desc">Găsești un partener pe Pramp.com sau interviewing.io (gratuit). Faci un interviu tehnic simulat complet: coding + system design + behavioral. Obligatoriu.</div>
+  </div>
+</div>
+<div class="eval-week">
+  <div class="eval-badge">SĂPT. 32</div>
+  <div class="eval-content">
+    <div class="eval-title">Retrospectivă finală + plan de 90 zile</div>
+    <div class="eval-desc">Dacă nu ai ofertă: analizezi riguros ce a lipsit (interviuri ratate? portofoliu slab? aplicări puține?). Faci plan de 90 zile corectat. Nu te oprești.</div>
+  </div>
+</div>
+
+
+<!-- SECTION 7: INTERVIEW PREP -->
+<h2><span class="section-num">07 / INTERVIEW</span>Întrebări tipice și cum să le abordezi</h2>
+
+<h3>Întrebări tehnice frecvente</h3>
+
+<div class="question-block">
+  <div class="question-text">„Explică-mi ce este RAG și de ce e util față de fine-tuning."</div>
+  <div class="question-hint">Răspuns cheie: RAG = retrieval în timp real din documente externe, fără a modifica modelul. Fine-tuning = reantrenare pe date specifice, costisitor, cunoștințe statice. RAG e mai ieftin, actualizabil, mai controlabil. Dă un exemplu concret din proiectele tale.</div>
+</div>
+<div class="question-block">
+  <div class="question-text">„Ce este un vector embedding și cum funcționează semantic search?"</div>
+  <div class="question-hint">Text → vector numeric multidimensional care capturează semnificație semantică. Căutare: query → vector, găsim cei mai apropiați vectori (cosine similarity). Explică de ce "king - man + woman = queen" în spațiul vectorial.</div>
+</div>
+<div class="question-block">
+  <div class="question-text">„Cum ai optimiza un RAG system care dă răspunsuri incorecte?"</div>
+  <div class="question-hint">Structurată: (1) Evaluare — unde greșește: retrieval sau generation? (2) Retrieval: chunk size, overlap, reranking, hybrid search. (3) Generation: prompt engineering, instruction clarity, temperature. (4) Eval metrics: faithfulness, relevancy.</div>
+</div>
+<div class="question-block">
+  <div class="question-text">„Walk me through a project you built. What would you do differently?"</div>
+  <div class="question-hint">Alege proiectul flagship. Explică: problema → arhitectura → implementare → ce ai învățat → ce ai schimba. NU spune "totul a mers perfect". Fiecare angajator vrea să audă gândire critică reală.</div>
+</div>
+<div class="question-block">
+  <div class="question-text">„Diferența dintre LangChain și LlamaIndex?"</div>
+  <div class="question-hint">LangChain: framework general pentru aplicații LLM (chains, agents, tools). LlamaIndex: specializat pe indexare și căutare în documente (RAG-focused). În practică se pot combina. Menționează că ai folosit LangChain în proiect X.</div>
+</div>
+<div class="question-block">
+  <div class="question-text">„Describe a situation where you had to learn something completely new quickly."</div>
+  <div class="question-hint">Behavioral question — folosești STAR (Situation, Task, Action, Result). Poți folosi chiar această reconversie ca exemplu concret și recent.</div>
+</div>
+
+
+<!-- SECTION 8: RESURSE -->
+<h2><span class="section-num">08 / RESURSE</span>Cărți, cursuri și comunități</h2>
+
+<div class="resource-grid">
+  <div class="resource-card">
+    <div class="resource-type">Cărți esențiale</div>
+    <ul class="resource-list">
+      <li><strong>Automate the Boring Stuff with Python</strong> – Al Sweigart <span class="free">GRATUIT ONLINE</span></li>
+      <li><strong>Hands-On Machine Learning</strong> – Aurélien Géron (O'Reilly)</li>
+      <li><strong>Building LLM Apps</strong> – Valentina Alto (Packt, 2024)</li>
+      <li><strong>Designing Machine Learning Systems</strong> – Chip Huyen</li>
+    </ul>
+  </div>
+  <div class="resource-card">
+    <div class="resource-type">Platforme cursuri</div>
+    <ul class="resource-list">
+      <li><strong>deeplearning.ai</strong> – Short courses LLM/AI <span class="free">GRATUIT</span></li>
+      <li><strong>kaggle.com/learn</strong> – Python, ML, Pandas <span class="free">GRATUIT</span></li>
+      <li><strong>fast.ai</strong> – Practical Deep Learning <span class="free">GRATUIT</span></li>
+      <li><strong>coursera.org</strong> – Google + IBM Certificates</li>
+    </ul>
+  </div>
+  <div class="resource-card">
+    <div class="resource-type">Bloguri & newslettere</div>
+    <ul class="resource-list">
+      <li><strong>Simon Willison's blog</strong> – simonwillison.net (AI trends) <span class="free">GRATUIT</span></li>
+      <li><strong>The Batch</strong> – Andrew Ng newsletter <span class="free">GRATUIT</span></li>
+      <li><strong>Towards Data Science</strong> – towardsdatascience.com <span class="free">GRATUIT</span></li>
+      <li><strong>LangChain Blog</strong> – blog.langchain.dev <span class="free">GRATUIT</span></li>
+    </ul>
+  </div>
+  <div class="resource-card">
+    <div class="resource-type">Comunități & networking</div>
+    <ul class="resource-list">
+      <li><strong>Hugging Face Discord</strong> – comunitate activă AI <span class="free">GRATUIT</span></li>
+      <li><strong>r/MachineLearning</strong> – Reddit ML <span class="free">GRATUIT</span></li>
+      <li><strong>LangChain Discord</strong> – suport tehnic direct <span class="free">GRATUIT</span></li>
+      <li><strong>LinkedIn AI Engineers groups</strong> – networking jobs</li>
+    </ul>
+  </div>
+  <div class="resource-card">
+    <div class="resource-type">Platforme job hunt</div>
+    <ul class="resource-list">
+      <li><strong>LinkedIn Jobs</strong> – filtru Remote + AI Engineer</li>
+      <li><strong>We Work Remotely</strong> – weworkremotely.com</li>
+      <li><strong>Remote.co</strong> – remote.co/remote-jobs</li>
+      <li><strong>Otta</strong> – otta.com (startup-uri EU/UK)</li>
+      <li><strong>Wellfound (AngelList)</strong> – startup jobs AI</li>
+    </ul>
+  </div>
+  <div class="resource-card">
+    <div class="resource-type">Practică & laboratoare</div>
+    <ul class="resource-list">
+      <li><strong>Kaggle Notebooks</strong> – environment gata configurat <span class="free">GRATUIT</span></li>
+      <li><strong>Google Colab</strong> – GPU gratuit <span class="free">GRATUIT</span></li>
+      <li><strong>GitHub Codespaces</strong> – dev environment în cloud</li>
+      <li><strong>HackerRank</strong> – evaluări Python tehnice <span class="free">GRATUIT</span></li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 9: SIMULARI INDUSTRIE -->
+<h2><span class="section-num">09 / SIMULĂRI</span>Sarcini reale din industrie</h2>
+
+<div class="alert">
+  Aceste simulări înlocuiesc exercițiile abstracte. Fiecare replică o sarcină reală pe care ai putea-o primi în prima săptămână de lucru.
+</div>
+
+<div class="question-block">
+  <div class="question-text">SIMULARE 1 (Săpt. 12): "Client vrea chatbot pentru site-ul său de turism"</div>
+  <div class="question-hint">Task: Primești un PDF cu 20 pagini de informații despre destinații turistice. Construiești un chatbot Streamlit care răspunde la întrebări despre destinații, prețuri și disponibilitate. Timp: 4 ore. Criterii: funcțional, deployat, sub $0.10 costuri API per sesiune.</div>
+</div>
+<div class="question-block">
+  <div class="question-text">SIMULARE 2 (Săpt. 16): "Analiză automată de feedback clienți"</div>
+  <div class="question-hint">Task: Primești 500 de review-uri Amazon (CSV). Construiești un pipeline Python care clasifică sentimentul (pozitiv/negativ/neutru), extrage top 5 probleme recurente și generează un raport executiv de 1 pagină. Fără a trata manual niciun review. Timp: 6 ore.</div>
+</div>
+<div class="question-block">
+  <div class="question-text">SIMULARE 3 (Săpt. 22): "Automatizare raport săptămânal"</div>
+  <div class="question-hint">Task: Script Python care rulează automat în fiecare luni, preia date de la un API (simulat), le procesează cu un LLM pentru a genera un rezumat executiv și "trimite" un email (mockup). Output: fișier HTML formatat ca newsletter. Timp: 8 ore.</div>
+</div>
+
+
+<div class="divider"></div>
+
+<!-- FEEDBACK PROFESORAL -->
+<div class="recommendation" style="border-left-color: var(--red);">
+  <div class="rec-role" style="color: var(--red); font-size: 16px;">// FEEDBACK PROFESORAL — REGULI NON-NEGOCIABILE</div>
+  <div class="rec-why">
+    <strong style="color: var(--text);">1. Nu avansezi fără să termini.</strong> Dacă nu ai finalizat proiectele unei faze, nu treci la faza următoare. Planul are logică cumulativă — nu este un meniu à la carte.<br><br>
+    <strong style="color: var(--text);">2. Codul tău trebuie să fie pe GitHub.</strong> Dacă nu e public și documentat, nu există. Angajatorii verifică GitHub, nu îți cred pe cuvânt.<br><br>
+    <strong style="color: var(--text);">3. 8 ore/săptămână înseamnă 8 ore concentrate.</strong> Nu 8 ore cu Netflix în fundal. Folosește Pomodoro (25 min focus / 5 min pauză) dacă ai probleme de concentrare.<br><br>
+    <strong style="color: var(--text);">4. Greșelile sunt obligatorii, nu opționale.</strong> Dacă nu primești erori în cod, nu înveți. Caută să construiești lucruri care se strică — apoi repară-le.<br><br>
+    <strong style="color: var(--text);">5. Lipsa bacalaureatului NU este o scuză.</strong> Pe piața internațională, portofoliul bate diploma. Un proiect RAG funcțional valorează mai mult decât un certificat fără proiecte demonstrabile.<br><br>
+    <strong style="color: var(--text);">6. Dacă ești blocat 30+ minute pe o problemă:</strong> (1) Citești documentația oficială, (2) Cauți pe Stack Overflow, (3) Întrebi un LLM, (4) Postezi în comunitate. Ordinea contează.
+  </div>
+</div>
+
+<div class="footer">
+  <div>
+    <div>Generat: 2026 · Personalizat pentru profil non-tehnic → AI Solutions Builder</div>
+    <div style="margin-top:4px;color:#555;">Revizuiește acest document la fiecare 8 săptămâni și ajustează planul în funcție de progresul real.</div>
+  </div>
+  <div class="footer-motto">„Disciplina este libertate."</div>
+</div>
+
+<script>
+function toggleWeek(header) {
+  const body = header.nextElementSibling;
+  const toggle = header.querySelector('.week-toggle');
+  body.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+</script>
+</body>
+</html>
